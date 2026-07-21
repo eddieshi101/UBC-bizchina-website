@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-syne);
+  --font-sans: var(--font-manrope);
+  --color-ink: #0a0f1a;
+  --color-navy: #0b1f3a;
+  --color-lacquer: #c1121f;
+  --color-lacquer-deep: #9b0e18;
+  --color-paper: #eef1f4;
+  --color-paper-warm: #f7f8fa;
+  --color-mist: #6b7280;
+  --color-line: #d5dae2;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper-warm font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-lacquer) 25%, transparent);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease both;
+}
+
+.animate-draw-line {
+  transform-origin: left;
+  animation: draw-line 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+.delay-1 {
+  animation-delay: 0.15s;
+}
+
+.delay-2 {
+  animation-delay: 0.3s;
+}
+
+.delay-3 {
+  animation-delay: 0.45s;
+}
+
+.delay-4 {
+  animation-delay: 0.6s;
+}
